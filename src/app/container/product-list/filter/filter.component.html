@@ -9,7 +9,8 @@
       (change)="onSelectedRadioButtonChanged()"
     />
     <!-- (change)="filterByGender($event)" -->
-    <span class="radio-btn">{{ "All (" + all + ")" }}</span>
+    <span class="radio-btn">All</span>
+    <!-- {{ "All (" + all + ")" }} -->
     <input
       type="radio"
       name="filter_stock"
@@ -17,7 +18,8 @@
       [(ngModel)]="selectedRadio"
       (change)="onSelectedRadioButtonChanged()"
     />
-    <span class="radio-btn">{{ "In-Stock (" + inStock + ")" }}</span>
+    <span class="radio-btn">In-Stock</span>
+    <!-- {{ "In-Stock (" + inStock + ")" }} -->
     <input
       type="radio"
       name="filter_stock"
@@ -25,6 +27,7 @@
       [(ngModel)]="selectedRadio"
       (change)="onSelectedRadioButtonChanged()"
     />
-    <span class="radio-btn">{{ "Out-Of-Stock (" + outOfStock + ")" }}</span>
+    <span class="radio-btn">Out-Of-Stock</span>
+    <!-- {{ "Out-Of-Stock (" + outOfStock + ")" }} -->
   </span>
 </div>

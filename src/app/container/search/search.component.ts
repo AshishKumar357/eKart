@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,16 +10,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './search.component.css',
 })
 export class SearchComponent {
-  searchClicked(_t3: HTMLInputElement) {
+  searchClicked(_t6: HTMLInputElement) {
     throw new Error('Method not implemented.');
   }
   searchText: string = '';
 
-  // ngOnInit()
-  //   this.searchText = event.target.value;
-  // }
+  @Output()
+  searchTextChange: EventEmitter<string> = new EventEmitter<string>();
 
-  // function searchClicked(){
-
-  // }
+  updateSearchText(inputEl: HTMLInputElement) {
+    this.searchText = inputEl.value;
+    this.searchTextChange.emit(this.searchText);
+  }
 }

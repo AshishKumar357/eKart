@@ -1,0 +1,80 @@
+<div class="ekart--product--details--info scroll">
+  <div class="ekart-product-detail-close">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+  <div class="ekart-product-detail-image">
+    <img [src]="product.imageURL" class="ekart-product-detail-image" />
+  </div>
+
+  <div class="ekart-product-detail">
+    <div class="ekart-product-detail-name">
+      <h2>{{ product.name }}</h2>
+    </div>
+    <div class="ekart-product-detail-gbc">
+      <span>MEN</span>
+      <span>NIKE</span>
+      <span>SPORTS</span>
+    </div>
+    <div class="ekart-product-detail-price">
+      <p>
+        <b>Price:</b>
+
+        <span
+          style="background-color: red; color: white"
+          *ngIf="
+            product.discountedPrice && product.discountedPrice <= product.price
+          "
+          ><s>{{ product.price | currency : "INR" }}</s></span
+        >
+        <span
+          style="background-color: green; color: white"
+          *ngIf="product.discountedPrice"
+          >{{ product.discountedPrice | currency : "INR" }}</span
+        >
+        <span
+          style="background-color: green; color: white"
+          *ngIf="!product.discountedPrice"
+          >{{ product.price | currency : "INR" }}</span
+        >
+        (Inclusive of all taxes)
+      </p>
+    </div>
+    <div class="ekart-product-detail-size" *ngIf="product.sizes.length > 0">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Size</h4>
+      </div>
+      <div
+        class="product-detail-available-size"
+        *ngFor="let item of product.sizes"
+      >
+        <span class="ekart-product-detail-available-size">{{ item }}</span>
+      </div>
+      <br />
+    </div>
+    <br />
+    <div class="ekart-product-detail-color" *ngIf="product.colors.length > 0">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Color</h4>
+      </div>
+      <diV class="detail-colors" *ngFor="let item of product.colors">
+        <span
+          class="ekart-product-detail-available-color"
+          [style.background-color]="item"
+        ></span>
+      </diV>
+    </div>
+    <br />
+    <div class="ekart-product-detail-desc">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Product Description</h4>
+      </div>
+      <div style="margin-top: 20px">
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="ekart-product-detail-addtoCart">
+    <button class="btn-add-to-cart">ADD TO CART</button>
+  </div>
+</div>
+<div class="overlay"></div>

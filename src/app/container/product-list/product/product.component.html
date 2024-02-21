@@ -1,10 +1,10 @@
 <div class="product-item">
   <!-- (addToCart)="addToCart($event)" -->
   <div class="wishlist-container">
-    <div class="add-to-wishlist" (click)="addToWishlist(product)">
+    <div class="add-to-wishlist" (click)="addToWishlist({ isWishList: true })">
       <!---->
       <i
-        class="fa fa-heart"
+        class="fa fa-heart-o"
         [ngClass]="{ isWishList: product.isWishList }"
         aria-hidden="true"
       ></i>

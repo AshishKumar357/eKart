@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { ProductComponent } from '../product/product.component';
+import { Component, Input } from '@angular/core';
+import { ProductComponent } from './product/product.component';
 import { FilterComponent } from './filter/filter.component';
+import { Product } from '../../Models/Products';
 // import { Product } from '../../Models/Products';
 
 @Component({
@@ -12,6 +13,7 @@ import { FilterComponent } from './filter/filter.component';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
+  selectedProduct: Product | undefined;
   products = [
     {
       id: 1,
@@ -58,7 +60,7 @@ export class ProductListComponent {
       gender: 'Unisex',
       category: 'Home & Kitchen',
       sizes: [],
-      colors: ['Silver', 'Black'],
+      colors: [],
       price: 20.0,
       is_in_inventory: false,
       items_left: 120,
@@ -132,8 +134,7 @@ export class ProductListComponent {
       price: 19.99,
       is_in_inventory: false,
       items_left: 0,
-      imageURL:
-        'https://m.media-amazon.com/images/I/71v2jVh6nIL._AC_UF1000,1000_QL80_.jpg',
+      imageURL: 'https://images.vans.com/is/image/Vans/MV122M-HERO?$583x583$',
       slug: 'ultrasoft-t-shirt',
       isWishList: false,
     },
@@ -190,4 +191,7 @@ export class ProductListComponent {
   OnFilterChanged(value: string) {
     this.selectedFilterRadioButton = value;
   }
+
+  @Input()
+  searchText: string = '';
 }
