@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
+import { FilterComponent } from './filter/filter.component';
 // import { Product } from '../../Models/Products';
 
 @Component({
   selector: 'product-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, FilterComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
@@ -175,4 +176,18 @@ export class ProductListComponent {
 
     // Add additional product entries here...
   ];
+
+  totalProducts: number = this.products.length;
+  inStockProducts: number = this.products.filter(
+    (product) => product.is_in_inventory
+  ).length;
+  outOfStockProducts: number = this.products.filter(
+    (product) => !product.is_in_inventory
+  ).length;
+
+  selectedFilterRadioButton: string = 'all';
+
+  OnFilterChanged(value: string) {
+    this.selectedFilterRadioButton = value;
+  }
 }

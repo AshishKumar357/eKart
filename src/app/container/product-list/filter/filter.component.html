@@ -1,1 +1,30 @@
-<p>filter works!</p>
+<div class="filter-container">
+  <div class="filter-heading">Filters :</div>
+  <span class="radio-btn">
+    <input
+      type="radio"
+      name="filter_stock"
+      value="all"
+      [(ngModel)]="selectedRadio"
+      (change)="onSelectedRadioButtonChanged()"
+    />
+    <!-- (change)="filterByGender($event)" -->
+    <span class="radio-btn">{{ "All (" + all + ")" }}</span>
+    <input
+      type="radio"
+      name="filter_stock"
+      value="true"
+      [(ngModel)]="selectedRadio"
+      (change)="onSelectedRadioButtonChanged()"
+    />
+    <span class="radio-btn">{{ "In-Stock (" + inStock + ")" }}</span>
+    <input
+      type="radio"
+      name="filter_stock"
+      value="false"
+      [(ngModel)]="selectedRadio"
+      (change)="onSelectedRadioButtonChanged()"
+    />
+    <span class="radio-btn">{{ "Out-Of-Stock (" + outOfStock + ")" }}</span>
+  </span>
+</div>
