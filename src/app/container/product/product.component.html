@@ -1,1 +1,52 @@
-<p>product works!</p>
+<div class="product-item">
+  <!-- (addToCart)="addToCart($event)" -->
+  <div class="wishlist-container">
+    <div class="add-to-wishlist" (click)="addToWishlist(product)">
+      <!---->
+      <i
+        class="fa fa-heart"
+        [ngClass]="{ isWishList: product.isWishList }"
+        aria-hidden="true"
+      ></i>
+    </div>
+    <div class="on-sale-tag" *ngIf="product.discountedPrice">
+      <span
+        >{{
+          (
+            ((product.price - product.discountedPrice) / product.price) *
+            100
+          ).toFixed(0)
+        }}% off</span
+      >
+    </div>
+  </div>
+  <div class="product-image">
+    <img class="product-image" [src]="product.imageURL" alt="product.img" />
+  </div>
+  <div class="product-price">{{ product.price | currency : "INR" }}</div>
+  <div class="product-name">{{ product.name }}</div>
+  <div class="product-category">
+    {{ product.gender }} . {{ product.category }} . {{ product.brand }}
+  </div>
+  <div class="product-color">{{ product.colors.length }} colors available</div>
+  <div
+    class="in-stock"
+    [ngStyle]="{
+      color: product.is_in_inventory ? 'green' : 'red'
+    }"
+  >
+    {{
+      product.is_in_inventory ? "Available in Stock" : "Not available in Stock"
+    }}
+  </div>
+
+  <div class="product-action">
+    <!-- <button
+          class="add-to-cart"
+          (click)="addToCart(product)"
+          [disabled]="product.isAddedToCart"
+        >
+          Add to Cart
+        </button> -->
+  </div>
+</div>

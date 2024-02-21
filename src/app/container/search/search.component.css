@@ -27,3 +27,12 @@
   margin: 20px auto;
   padding: 10px 140px;
 }
+
+.btn-search-disabled {
+  padding: 9.5px 30px;
+  background-color: #1d1d2e;
+  /* margin-left: -5px; */
+  color: #ffffff;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
