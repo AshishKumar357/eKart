@@ -6,3 +6,9 @@
   padding-right: 30px;
   font-size: small;
 }
+
+.ekart--top--bar a:hover {
+  color: #3366cc;
+  text-decoration: none;
+  font-weight: bold;
+}

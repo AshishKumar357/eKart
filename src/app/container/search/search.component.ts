@@ -9,9 +9,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './search.component.css',
 })
 export class SearchComponent {
-  searchText: string = 'Womens watch';
+  searchText: string = '';
 
-  updateSearchText(event: any) {
-    this.searchText = event.target.value;
-  }
+  // ngOnInit()
+  //   this.searchText = event.target.value;
+  // }
+
+  // function searchClicked(){
+
+  // }
 }

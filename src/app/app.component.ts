@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ContainerComponent } from './container/container.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ import { ProductListComponent } from './product-list/product-list.component';
     FooterComponent,
     HeaderComponent,
     TopHeaderComponent,
-    ProductListComponent
+    ContainerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
